@@ -1,15 +1,19 @@
 import "./App.css";
+import ConditionalRendering from "./components/ConditionalRendering";
 import Header from "./components/Header";
+import RenderingList from "./components/RenderingList";
 import UserBento from "./components/UserBento";
 
 function App() {
-	const userName = "miguel";
+	const userName = "Miguel";
 	return (
 		<>
-			<Header />
+			<UserBento userName={userName} />
 
-			<main className="container mx-auto px-4">
-				<UserBento userName={userName} />
+			<main className="w-full  max-w-4xl flex  flex-col gap-4">
+				<Header />
+				<ConditionalRendering />
+				<RenderingList />
 			</main>
 		</>
 	);
