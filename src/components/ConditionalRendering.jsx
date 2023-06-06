@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import StatsBox from "./atoms/StatsBox.jsx";
+import ReactCodeBox from "./atoms/ReactCodeBox/ReactCodeBox.jsx";
 
 export default function ConditionalRendering() {
 	const [isCollapse, setIsCollapse] = useState(false);
@@ -10,6 +11,15 @@ export default function ConditionalRendering() {
 	};
 
 	const sectionRef = useRef(null);
+
+	const code = `	<button
+	className="btn btn-outline btn-primary btn-xs sm:btn-sm md:btn-md lg:px-6 lg:py-4 "
+	onClick={() => setShowCode(!showCode)}
+	onMouseDown={(e) => e.preventDefault()}
+>
+	{showCode ? "Ocultar Stats" : "Mostrar Stats"}
+</button>
+{showCode && <StatsBox />}`;
 
 	return (
 		<section
@@ -46,6 +56,8 @@ export default function ConditionalRendering() {
 						{showCode ? "Ocultar Stats" : "Mostrar Stats"}
 					</button>
 					{showCode && <StatsBox />}
+
+					<ReactCodeBox codeSnippet={code} />
 				</div>
 			</div>
 		</section>

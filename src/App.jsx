@@ -6,6 +6,7 @@ import UserBento from "./components/UserBento";
 
 function App() {
 	const userName = "Miguel";
+
 	return (
 		<>
 			<UserBento userName={userName} />
