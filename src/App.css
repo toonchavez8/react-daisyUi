@@ -8,6 +8,8 @@
 
 	padding: 2rem;
 	justify-items: center;
+
+	scrollbar-gutter: stable;
 }
 /* change scroll bar wight and color */
 ::-webkit-scrollbar {
@@ -29,8 +31,11 @@
 
 /* create a counted number pre for my h2 not first count */
 
-h2::before {
+section:not(:first-child) {
 	counter-increment: h2;
+}
+
+section h2::before:not(first-child) {
 	content: counter(h2) ". ";
 	color: rgb(100, 26, 230);
 	font-size: 1.5rem;
