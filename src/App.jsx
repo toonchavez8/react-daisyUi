@@ -1,11 +1,16 @@
 import "./App.css";
+import Header from "./components/Header";
+import UserBento from "./components/UserBento";
 
 function App() {
+	const userName = "miguel";
 	return (
 		<>
-			<button className="btn btn-primary">One</button>
-			<button className="btn btn-secondary">Two</button>
-			<button className="btn btn-accent btn-outline">Three</button>
+			<Header />
+
+			<main className="container mx-auto px-4">
+				<UserBento userName={userName} />
+			</main>
 		</>
 	);
 }

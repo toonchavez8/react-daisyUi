@@ -6,5 +6,5 @@ export default {
 	},
 
 	// eslint-disable-next-line no-undef
-	plugins: [require("daisyui")],
+	plugins: [require("@tailwindcss/typography"), require("daisyui")],
 };
