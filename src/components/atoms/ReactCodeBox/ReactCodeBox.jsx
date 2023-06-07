@@ -11,10 +11,13 @@ import "./editor.css";
 // prop validation
 ReactCodeBox.propTypes = {
 	codeSnippet: PropTypes.string.isRequired,
+	fileName: PropTypes.string.isRequired,
 };
 
-export default function ReactCodeBox({ codeSnippet }) {
+export default function ReactCodeBox({ codeSnippet, fileName }) {
 	const [code, setCode] = useState(codeSnippet);
+
+	console.log(fileName);
 
 	const minimize = () => {
 		const window = document.querySelector(".editor_wrap");
@@ -41,7 +44,7 @@ export default function ReactCodeBox({ codeSnippet }) {
 		<div className="App w-full">
 			<div className="window ">
 				<div className="title-bar">
-					<div className="title-buttons">
+					<div className="title-buttons flex flex-row">
 						<button
 							className="title-button"
 							onMouseDown={(e) => e.preventDefault()}
@@ -57,6 +60,7 @@ export default function ReactCodeBox({ codeSnippet }) {
 							onMouseDown={(e) => e.preventDefault()}
 							onClick={fullScreenToggle}
 						></button>
+						<p className="prose px-2">{fileName}</p>
 					</div>
 				</div>
 				<div className="editor_wrap bg-base-100">
@@ -72,6 +76,8 @@ export default function ReactCodeBox({ codeSnippet }) {
 						}}
 					/>
 				</div>
+
+				<div className="absolute inset-0 -z-10 bg-primary w-full h-full bg-repeat"></div>
 			</div>
 		</div>
 	);
