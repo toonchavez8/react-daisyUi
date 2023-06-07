@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import StatsBox from "./atoms/StatsBox.jsx";
 import ReactCodeBox from "./atoms/ReactCodeBox/ReactCodeBox.jsx";
 
@@ -9,8 +9,6 @@ export default function ConditionalRendering() {
 	const handleCollapse = () => {
 		setIsCollapsed(!isCollapsed);
 	};
-
-	const sectionRef = useRef(null);
 
 	const code = `<button
 	className="btn btn-outline btn-primary btn-xs sm:btn-sm md:btn-md lg:px-6 lg:py-4 "
@@ -23,7 +21,6 @@ export default function ConditionalRendering() {
 	let fileName = `ConditionalRendering.jsx`;
 	return (
 		<section
-			ref={sectionRef}
 			tabIndex={0}
 			className={`collapse collapse-arrow bg-base-200 w-full max-w-4xl rounded-lg prose `}
 			onClick={() => handleCollapse()}
